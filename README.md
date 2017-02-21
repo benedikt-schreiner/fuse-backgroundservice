@@ -16,10 +16,12 @@ Unfortunately it currently only works on live devices or the Android preview. No
 
 ## How to use
 
-You can add your own written Java Code inside the `onStartCommand` method of the `ServiceClass.java`. Currently there is a small
-example, how that could look like.
+Most things have to be done inside foreign code and Uno.
 
 ### Uno and Java
+
+You can add your own written Java Code inside the `onStartCommand` method of the `ServiceClass.java`. Currently there is a small
+example, how that could look like.
 
 You can pass data from JavaScript to Uno and from Uno to the Service. You can pass all through the `intent.putExtra()` like so
 ```javascript
