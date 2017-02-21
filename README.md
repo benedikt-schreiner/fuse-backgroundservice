@@ -24,6 +24,7 @@ You can add your own written Java Code inside the `onStartCommand` method of the
 example, how that could look like.
 
 You can pass data from JavaScript to Uno and from Uno to the Service. You can pass all through the `intent.putExtra()` like so
+#### Service.uno
 ```javascript
     [Foreign(Language.Java)]
     extern(Android) void StartServiceJ(string arg)
@@ -36,6 +37,7 @@ You can pass data from JavaScript to Uno and from Uno to the Service. You can pa
            ...
 ```
 and receive it via `intent.getExtras()` inside the Service
+#### ServiceClass.java
 ```javascript
     try {
             resultReceiver = intent.getParcelableExtra(RECEIVER);
@@ -49,6 +51,7 @@ and receive it via `intent.getExtras()` inside the Service
  
 If the Service is supposed to deliver back an event or some kind of result, you can easily create a new Bundle and put that
 back by using the `ResultReceiver`-object this way
+#### ServiceClass.java
 ```javascript
     ...
     } else {
@@ -59,6 +62,7 @@ back by using the `ResultReceiver`-object this way
                 ...
 ```
 This throws the event on the Uno side
+#### Service.uno
 ```javascript
         ...
         intent.putExtra("AndroidServiceReceiver", new ResultReceiver((Handler) @{Handler:Get()}) {
