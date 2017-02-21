@@ -1,0 +1,43 @@
+<App>
+    
+    <JavaScript>
+        var Service = require("Service");
+        var Observable = require("FuseJS/Observable");
+
+        var textinput = Observable("");
+        var textoutput = Observable("");
+
+
+        function startservice() {
+            Service.start(textinput.value);
+        }
+
+        function stopservice() {
+            Service.stop();
+        }
+
+        Service.on("onServiceChanged", function(arg) {
+            textoutput.value = arg;
+        });
+
+        module.exports = {
+            startservice : startservice,
+            stopservice : stopservice,
+            textinput : textinput,
+            textoutput : textoutput
+        };
+    </JavaScript>
+
+   <StackPanel Margin="0,50,0,0">
+        <Button Clicked="{startservice}" Text="START" />
+        <Button Clicked="{stopservice}" Text="STOP" />
+        <Text Value="Just type a number e.g. 10" /> 
+        <TextInput ux:Name="text" PlaceholderText="number of toasts" PlaceholderColor="#ccc" Height="50" Padding="5" Value="{textinput}">
+            <Rectangle Layer="Background">
+                <Stroke Width="2" Brush="#BBB" />
+            </Rectangle>
+        </TextInput>
+        <Text Value="{textoutput}" /> 
+   </StackPanel>
+
+</App>
