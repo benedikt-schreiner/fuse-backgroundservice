@@ -87,7 +87,7 @@ This throws the event on the Uno side
  * Long running tasks have a return value of `START_STICKY` which is currently the case. The process runs as long until the
  user manually decides to terminate it.
  
- * If you want the service to be terminated after the work is done you should give back `NOT_STICKY`.
+ * If you want the service to be terminated after the work is done you should give back `START_NOT_STICKY`.
  
 Please have a look to the official Android Docs for more information...
  
